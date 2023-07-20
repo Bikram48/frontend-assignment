@@ -1,5 +1,10 @@
 import React from "react";
+import Navbar from "./components/Navbar";
 
 export default function App() {
-  return <h1 className="text-5xl">online store</h1>;
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
 }
