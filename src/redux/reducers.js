@@ -1,8 +1,8 @@
 import { type } from "./actions/types";
-import { combineReducers } from "redux";
 
 const initialState = {
   isToggle: false,
+  products: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,6 +11,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isToggle: action.payload,
+      };
+    case type.FETCH_DATA:
+      return {
+        ...state,
+        products: action.payload,
       };
     default:
       return state;

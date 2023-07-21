@@ -6,3 +6,10 @@ export const setToggle = (payload) => {
     payload: payload,
   };
 };
+
+export const fetchProductData = (payload) => {
+  return {
+    type: type.FETCH_DATA,
+    payload: payload,
+  };
+};
