@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
       },
+      colors: {
+        hoverColor: "rgba(28, 27, 35, 0.2)",
+      },
     },
   },
   plugins: [],

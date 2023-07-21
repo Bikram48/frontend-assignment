@@ -8,3 +8,7 @@ body {
   background-color: #14131A;
   color: #FFFFFF;
 }
+
+.menu-item-hover {
+  @apply  hover:bg-hoverColor;
+}

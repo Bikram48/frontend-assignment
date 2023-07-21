@@ -6,8 +6,8 @@ import { setToggle } from "../redux/actions/actions";
 export default function Navbar() {
   const dispatch = useDispatch();
   return (
-    <div className="p-4 md:flex md:justify-between md:p-6">
-      <div className="flex justify-between items-center mb-5">
+    <div className="p-4 md:flex md:justify-between md:p-6 border-b border-gray">
+      <div className="flex justify-between items-center mb-5 md:mb-0">
         <h1 className="text-xl font-bold">OnlineStore</h1>
         <FaBars
           className="md:hidden"
