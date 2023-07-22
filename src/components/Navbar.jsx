@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { setToggle } from "../redux/actions/actions";
 import { searchQuery } from "../redux/actions/actions";
+import { AiOutlineArrowRight } from "react-icons/ai";
+
 export const NavbarWithSearch = () => {
   const dispatch = useDispatch();
   const [query, setQuery] = useState("");
@@ -25,7 +27,11 @@ export const NavbarWithSearch = () => {
         />
       </div>
       <div>
-        <form action="" onSubmit={searchResult}>
+        <form
+          className="flex gap-2 items-center"
+          action=""
+          onSubmit={searchResult}
+        >
           <input
             type="text"
             placeholder="Search Products..."
@@ -33,6 +39,12 @@ export const NavbarWithSearch = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
+          <button
+            type="submit"
+            className="bg-[#29282c] p-3 rounded-full hover:opacity-70"
+          >
+            <AiOutlineArrowRight />
+          </button>
         </form>
       </div>
     </div>
