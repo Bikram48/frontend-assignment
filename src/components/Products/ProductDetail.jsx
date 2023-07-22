@@ -20,22 +20,31 @@ export default function ProductDetail() {
 
   const renderProduct = productDetail && (
     <>
-      <div className="mb-4 relative">
+      <div className="mb-4 relative basis-5/12">
         <img src={productDetail.image} />
         <p className="bg-[#de2176] w-10 p-1 flex items-center justify-center absolute top-0 right-0">
           {productDetail.rating.rate}
         </p>
       </div>
-      <div>
-        <p className="font-bold mb-2">${productDetail.price}</p>
-        <h2 className="text-2xl mb-2">{productDetail.title}</h2>
-        <p className="text-base mb-5">{productDetail.description}</p>
+      <div className="basis-7/12">
+        <p className="font-bold mb-2 md:text-lg md:mb-4">
+          ${productDetail.price}
+        </p>
+        <h2 className="text-2xl mb-2 md:text-3xl font-bold md:mb-8">
+          {productDetail.title}
+        </h2>
+        <p
+          style={{ lineHeight: 1.7 }}
+          className="text-base mb-5 md:text-xl md:mb-10"
+        >
+          {productDetail.description}
+        </p>
 
-        <p className="text-sm mb-1x">
+        <p className="text-sm mb-1 md:text-base md:mb-2">
           <span className="font-bold">Category: </span>
           {productDetail.category}
         </p>
-        <p className="text-sm">
+        <p className="text-sm md:text-base">
           <span className="font-bold">Rating Count: </span>
           {productDetail.rating.count}
         </p>
@@ -44,5 +53,9 @@ export default function ProductDetail() {
   );
 
   console.log(productDetail);
-  return <div className="p-4 mt-5">{renderProduct}</div>;
+  return (
+    <div className="p-4 mt-5 md:flex max-w-5xl mx-auto md:gap-14 md:mt-12">
+      {renderProduct}
+    </div>
+  );
 }
