@@ -18,16 +18,29 @@ export default function Sidebar() {
   return (
     <div className="flex items-start">
       {isMobileToggle ? (
-        <div className="bg-[#1C1B23] h-screen w-screen absolute top-0">
+        <div className="bg-[#1C1B23] h-screen w-screen absolute top-0 animate-scaleUp">
           <div
-            className="flex justify-end m-2"
+            className="flex justify-end m-4"
             onClick={() => dispatch(setToggle(false))}
           >
             <ImCross />
           </div>
+          <div className="bg-[#1C1B23] h-auto w-[150px] md:w-[200px] rounded-xl md:m-6 p-4">
+            <a href="" className="flex gap-4 items-center mb-6 menu-item-hover">
+              <AiFillHome />
+              Home
+            </a>
+            <Link
+              to="/search"
+              className="flex gap-4 items-center select2-search menu-item-hover"
+            >
+              <AiOutlineSearch />
+              Search
+            </Link>
+          </div>
         </div>
       ) : (
-        <div className="bg-[#1C1B23] h-auto w-[200px] rounded-xl md:m-6 p-4">
+        <div className="bg-[#1C1B23] h-auto w-[150px] md:w-[200px] rounded-xl md:m-6 p-4 hidden md:block">
           <a href="" className="flex gap-4 items-center mb-6 menu-item-hover">
             <AiFillHome />
             Home
