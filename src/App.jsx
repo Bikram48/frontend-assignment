@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar, { NavbarWithSearch } from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import { fetchProducts } from "./redux/apis";

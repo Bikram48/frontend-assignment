@@ -8,7 +8,7 @@ export default function ProductList() {
   const renderProduct =
     allProducts &&
     allProducts.map((product) => {
-      return <ProductCard item={product} />;
+      return <ProductCard item={product} key={product.id} />;
     });
   return (
     <>

@@ -20,7 +20,7 @@ export default function ProductSearch() {
   const renderProduct =
     searchResults &&
     searchResults.map((product) => {
-      return <ProductCard item={product} />;
+      return <ProductCard item={product} key={product.id} />;
     });
 
   return (
