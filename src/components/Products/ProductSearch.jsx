@@ -8,9 +8,14 @@ export default function ProductSearch() {
 
   const searchResults =
     allProducts &&
+    searchQuery &&
     allProducts.filter((product) =>
-      product.title.toLowerCase().includes(searchQuery)
+      product.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+  if (searchQuery && searchResults.length == 0) {
+    return <h1 className="text-center mt-6 w-full text-xl">No Items found</h1>;
+  }
 
   const renderProduct =
     searchResults &&
