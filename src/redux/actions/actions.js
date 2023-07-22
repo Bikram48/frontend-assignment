@@ -13,3 +13,10 @@ export const fetchProductData = (payload) => {
     payload: payload,
   };
 };
+
+export const fetchSingleProductData = (payload) => {
+  return {
+    type: type.FETCH_DETAIL,
+    payload: payload,
+  };
+};
