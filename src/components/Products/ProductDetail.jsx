@@ -1,28 +1,34 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { fetchSingleProductData } from "../../redux/actions/actions";
 import { fetchSingleProduct } from "../../redux/apis";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
 import Loader from "../Loader";
+import { useQuery } from "react-query";
 
 export default function ProductDetail() {
-  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const productDetail = useSelector((state) => state.productDetail);
-  useEffect(() => {
-    setTimeout(async () => {
-      dispatch(fetchSingleProductData(await fetchSingleProduct(id)));
-      setLoading(false);
-    }, 1000);
-  });
+  const { data, isLoading, error } = useQuery(["detail", id], () =>
+    fetchSingleProduct(id)
+  );
 
-  if (loading) {
+  if (data) {
+    dispatch(fetchSingleProductData(data));
+  }
+
+  const productDetail = useSelector((state) => state.productDetail);
+
+  if (isLoading) {
     return <Loader />;
   }
+
+  if (error) {
+    <p className="text-orange-700">Error while fetching data</p>;
+  }
+
   const renderProduct = productDetail && (
     <>
       <div className="mb-4 relative basis-5/12">

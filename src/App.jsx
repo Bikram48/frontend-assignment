@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar, { NavbarWithSearch } from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import { fetchProducts } from "./redux/apis";
@@ -8,17 +8,19 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ProductDetail from "./components/Products/ProductDetail";
 import ProductSearch from "./components/Products/ProductSearch";
 import ProductList from "./components/Products/ProductList";
+import { useQuery } from "react-query";
 
 export default function App() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      dispatch(fetchProductData(await fetchProducts()));
-    };
+  const { data, error } = useQuery("data", fetchProducts);
 
-    fetchData();
-  });
+  if (data) {
+    dispatch(fetchProductData(data));
+  }
+  if (error) {
+    <p className="text-orange-700">Error while fetching data</p>;
+  }
 
   const isSearchPage = () => {
     const location = useLocation();
