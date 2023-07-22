@@ -4,20 +4,25 @@ import { fetchSingleProductData } from "../../redux/actions/actions";
 import { fetchSingleProduct } from "../../redux/apis";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
+import Loader from "../Loader";
 
 export default function ProductDetail() {
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const { id } = useParams();
 
   const productDetail = useSelector((state) => state.productDetail);
   useEffect(() => {
-    const fetchData = async () => {
+    setTimeout(async () => {
       dispatch(fetchSingleProductData(await fetchSingleProduct(id)));
-    };
-
-    fetchData();
+      setLoading(false);
+    }, 1000);
   });
 
+  if (loading) {
+    return <Loader />;
+  }
   const renderProduct = productDetail && (
     <>
       <div className="mb-4 relative basis-5/12">
@@ -53,8 +58,10 @@ export default function ProductDetail() {
   );
 
   return (
-    <div className="p-4 mt-5 md:flex max-w-5xl mx-auto md:gap-14 md:mt-12">
-      {renderProduct}
-    </div>
+    <>
+      <div className="p-4 mt-5 md:flex max-w-5xl mx-auto md:gap-14 md:mt-12">
+        {renderProduct}
+      </div>
+    </>
   );
 }
