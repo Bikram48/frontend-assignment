@@ -4,8 +4,9 @@ import { ImCross } from "react-icons/im";
 import { useDispatch } from "react-redux";
 import { setToggle } from "../redux/actions/actions";
 import { AiFillHome } from "react-icons/ai";
-import { BsBoxFill } from "react-icons/bs";
+import { AiOutlineSearch } from "react-icons/ai";
 import ProductList from "./Products/ProductList";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
@@ -32,13 +33,13 @@ export default function Sidebar() {
             <AiFillHome />
             Home
           </a>
-          <a
-            href=""
+          <Link
+            to="/search"
             className="flex gap-4 items-center select2-search menu-item-hover"
           >
-            <BsBoxFill />
-            Product
-          </a>
+            <AiOutlineSearch />
+            Search
+          </Link>
         </div>
       )}
 

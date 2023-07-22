@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import Navbar from "./components/Navbar";
+import Navbar, { NavbarWithSearch } from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import { fetchProducts } from "./redux/apis";
 import { useDispatch } from "react-redux";
 import { fetchProductData } from "./redux/actions/actions";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ProductDetail from "./components/Products/ProductDetail";
 
 export default function App() {
@@ -18,10 +18,15 @@ export default function App() {
     fetchData();
   });
 
+  const isSearchPage = () => {
+    const location = useLocation();
+    return location.pathname.includes("/search");
+  };
+
   const Layout = ({ children }) => {
     return (
       <div>
-        <Navbar />
+        {isSearchPage() ? <NavbarWithSearch /> : <Navbar />}
         {children}
       </div>
     );
