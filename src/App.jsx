@@ -4,6 +4,8 @@ import Sidebar from "./components/Sidebar";
 import { fetchProducts } from "./redux/apis";
 import { useDispatch } from "react-redux";
 import { fetchProductData } from "./redux/actions/actions";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductDetail from "./components/Products/ProductDetail";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -16,10 +18,32 @@ export default function App() {
     fetchData();
   });
 
+  const Layout = ({ children }) => {
+    return (
+      <div>
+        <Navbar />
+        {children}
+      </div>
+    );
+  };
+
   return (
     <div>
-      <Navbar />
-      <Sidebar />
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Sidebar />
+                </>
+              }
+            />
+            <Route path="/product/:id" element={<ProductDetail />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
     </div>
   );
 }
