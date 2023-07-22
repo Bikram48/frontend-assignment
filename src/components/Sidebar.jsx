@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { setToggle } from "../redux/actions/actions";
 import { AiFillHome } from "react-icons/ai";
 import { BsBoxFill } from "react-icons/bs";
+import ProductList from "./Products/ProductList";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ export default function Sidebar() {
   });
 
   return (
-    <>
+    <div className="flex items-start">
       {isMobileToggle ? (
         <div className="bg-[#1C1B23] h-screen w-screen absolute top-0">
           <div
@@ -40,6 +41,10 @@ export default function Sidebar() {
           </a>
         </div>
       )}
-    </>
+
+      <div className="md:m-6 p-4">
+        <ProductList />
+      </div>
+    </div>
   );
 }
