@@ -7,11 +7,10 @@ export default function ProductSearch() {
   const allProducts = useSelector((state) => state.products);
 
   const searchResults =
-    (allProducts &&
-      allProducts.filter((product) =>
-        product.title.toLowerCase().includes(searchQuery)
-      )) ||
-    [];
+    allProducts &&
+    allProducts.filter((product) =>
+      product.title.toLowerCase().includes(searchQuery)
+    );
 
   const renderProduct =
     searchResults &&
