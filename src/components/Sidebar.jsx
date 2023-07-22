@@ -12,7 +12,6 @@ export default function Sidebar() {
   const dispatch = useDispatch();
 
   const isMobileToggle = useSelector((state) => {
-    console.log(state);
     return state.isToggle;
   });
 

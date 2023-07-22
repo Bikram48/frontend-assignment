@@ -52,7 +52,6 @@ export default function ProductDetail() {
     </>
   );
 
-  console.log(productDetail);
   return (
     <div className="p-4 mt-5 md:flex max-w-5xl mx-auto md:gap-14 md:mt-12">
       {renderProduct}

@@ -1,9 +1,11 @@
+import { searchQuery } from "./actions/actions";
 import { type } from "./actions/types";
 
 const initialState = {
   isToggle: false,
   products: null,
   productDetail: null,
+  searchQuery: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,6 +24,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         productDetail: action.payload,
+      };
+    case type.PRODUCT_SEARCH:
+      return {
+        ...state,
+        searchQuery: action.payload,
       };
     default:
       return state;

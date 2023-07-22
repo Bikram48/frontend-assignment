@@ -4,8 +4,6 @@ import ProductCard from "./ProductCard";
 
 export default function ProductList() {
   const allProducts = useSelector((state) => state.products);
-  console.log(allProducts);
-
   const renderProduct =
     allProducts &&
     allProducts.map((product) => {

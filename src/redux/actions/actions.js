@@ -20,3 +20,10 @@ export const fetchSingleProductData = (payload) => {
     payload: payload,
   };
 };
+
+export const searchQuery = (payload) => {
+  return {
+    type: type.PRODUCT_SEARCH,
+    payload: payload,
+  };
+};
