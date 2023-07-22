@@ -14,10 +14,10 @@ export const NavbarWithSearch = () => {
   };
 
   return (
-    <div className="p-4 md:flex md:justify-between md:p-6 border-b border-gray">
+    <div className="p-4 md:flex md:justify-between md:p-6 border-b border-[#29282c]">
       <div className="flex justify-between items-center mb-5 md:mb-0">
         <Link to="/">
-          <h1 className="text-xl font-bold">OnlineStore</h1>
+          <h1 className="text-2xl font-bold">OnlineStore</h1>
         </Link>
         <FaBars
           className="md:hidden"
@@ -41,10 +41,10 @@ export const NavbarWithSearch = () => {
 export default function Navbar() {
   const dispatch = useDispatch();
   return (
-    <div className="p-4 md:flex md:justify-between md:p-6 border-b border-gray">
+    <div className="p-4 md:flex md:justify-between md:p-6 border-b border-[#29282c]">
       <div className="flex justify-between items-center mb-5 md:mb-0">
         <Link to="/">
-          <h1 className="text-xl font-bold">OnlineStore</h1>
+          <h1 className="text-2xl font-bold">OnlineStore</h1>
         </Link>
         <FaBars
           className="md:hidden"
