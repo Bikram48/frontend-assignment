@@ -11,5 +11,9 @@ export default function ProductList() {
     allProducts.map((product) => {
       return <ProductCard item={product} />;
     });
-  return <div className="grid grid-cols-4">{renderProduct}</div>;
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {renderProduct}
+    </div>
+  );
 }
