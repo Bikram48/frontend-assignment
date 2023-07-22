@@ -7,6 +7,7 @@ import { fetchProductData } from "./redux/actions/actions";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ProductDetail from "./components/Products/ProductDetail";
 import ProductSearch from "./components/Products/ProductSearch";
+import ProductList from "./components/Products/ProductList";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -37,18 +38,14 @@ export default function App() {
     <div>
       <BrowserRouter>
         <Layout>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <Sidebar />
-                </>
-              }
-            />
-            <Route path="/product/:id" element={<ProductDetail />} />
-            <Route path="/search" element={<ProductSearch />} />
-          </Routes>
+          <div className="flex items-start mt-8">
+            <Sidebar />
+            <Routes>
+              <Route path="/" element={<ProductList />} />
+              <Route path="/product/:id" element={<ProductDetail />} />
+              <Route path="/search" element={<ProductSearch />} />
+            </Routes>
+          </div>
         </Layout>
       </BrowserRouter>
     </div>

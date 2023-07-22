@@ -10,7 +10,7 @@ export default function ProductList() {
       return <ProductCard item={product} />;
     });
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-3">
       {renderProduct}
     </div>
   );
